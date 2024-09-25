@@ -38,6 +38,33 @@ namespace CustomerOrderApi.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("CustomerOrderApi.Models.CutomerOrder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Customer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OrderItems")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CutomerOrder");
+                });
+
             modelBuilder.Entity("Order", b =>
                 {
                     b.Property<int>("OrderId")

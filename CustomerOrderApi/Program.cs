@@ -6,7 +6,7 @@ using Swashbuckle.AspNetCore.Annotations;
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("appsettings.json");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseSqlServer());
+options.UseSqlServer("Data Source=.;Initial Catalog=CustomerOrder;Integrated Security=True"));
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers(); // Ensure this line is present
